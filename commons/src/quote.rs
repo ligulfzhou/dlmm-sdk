@@ -159,7 +159,6 @@ pub fn quote_exact_in(
 
     let mut while_count = 0;
     while amount_in > 0 {
-        dbg!("while..");
         if while_count>10 {
             return Err(anyhow!("endless loop"));
         }
@@ -179,7 +178,6 @@ pub fn quote_exact_in(
             .context("Active bin array not found")?;
 
         loop {
-            dbg!("loop...");
             if active_bin_array
                 .is_bin_id_within_range(lb_pair.active_id)
                 .is_err()
