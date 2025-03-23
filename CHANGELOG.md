@@ -19,6 +19,153 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Security
 
+## @meteora-ag/dlmm [1.4.2] - PR #183
+
+### Added
+
+- Add `getCustomizablePermissionlessLbPairIfExists` function to fetch existing customizable permissionless LB pair
+
+### Changed
+
+- remove CU estimation for `seedLiquidity`
+
+### Fixed
+
+- Fix incorrect enable/disable mapping in `setPairStatusPermissionless`
+
+## @meteora-ag/dlmm [1.4.1] - PR #182
+
+### Changed
+
+- Update readme to include `claimFee`
+
+## @meteora-ag/dlmm [1.4.0] - PR #181
+
+### Changed
+
+- Revamp StrategyType, now only have `StrategyType.Spot`, `StrategyType.BidAsk` & `StrategyType.Curve`
+
+## @meteora-ag/dlmm [1.3.16] - PR #179
+
+### Changed
+
+- Add `feeOwner`, `operator`, `lockReleasePoint`, `shouldSeedPositionOwner`, `txPayer` parameters for `seedLiquidity` function
+
+## @meteora-ag/dlmm [1.3.15] - PR #173
+
+### Added
+
+- Add param `enablePoolOnOffControl` to `createCustomizablePermissionlessLbPair` function.
+- Add `setPairStatusPermissionless` function. This require pool field `creator_pool_on_off_control` to be true and pair type is `CustomizablePermissionless`. Pool creator can enable/disable the pair anytime before the pool is opened / activated. Once the pool activation time is passed, the pool creator can only enable the pair. Useful for token launches which do not have fixed activation time.
+
+## cli [0.4.2] - PR #173
+
+- Add param `creator_pool_on_off_control` to `InitializeCustomizablePermissionlessLbPair` function.
+- Add `set_pair_status_permissionless` function.
+
+## @meteora-ag/dlmm [1.3.14] - PR #167
+
+### Added
+
+- Add param `maxExtraBinArrays` to `swapQuote` and `swapQuoteExactOut` functions.
+
+## @meteora-ag/dlmm [1.3.13] - PR #166
+
+### Added
+
+- Add `ts-client` function `getLbPairLockInfo`.
+
+## @meteora-ag/dlmm [1.3.12] - PR #161
+
+### Added
+
+- Remove `@solana-developers/helpers` dependency.
+
+## cli [0.4.1] - PR #160
+
+### Added
+
+- Add admin commmand `set_pair_status`.
+
+### Removed
+
+- Removed admin command `toggle_pair_status`.
+
+## @meteora-ag/dlmm [1.3.11] - PR #160
+
+### Added
+
+- Add admin function `setPairStatus`.
+
+## @meteora-ag/dlmm [1.3.10] - PR #159
+
+### Changed
+
+- Bump DLMM IDL to 0.8.5.
+- Update `lb_clmm.so` artifact.
+- Update function `createCustomizablePermissionlessLbPair` to use account `userTokenY`.
+
+### Removed
+
+- Removed account `rent` in function `createCustomizablePermissionlessLbPair`.
+
+## @meteora-ag/dlmm [1.3.9] - PR #145
+
+### Fixed
+
+- Remove Strategy `SpotOneSide`, `CurveOneSide` & `BidAskOneSide`
+
+## @meteora-ag/dlmm [1.3.8] - PR #144
+
+### Fixed
+
+- Fix `getOrCreateATAInstruction` to use `createAssociatedTokenAccountIdempotentInstruction`
+
+## @meteora-ag/dlmm [1.3.7] - PR #143
+
+### Fixed
+
+- Fix `swapQuote` end price
+
+## @meteora-ag/dlmm [1.3.6] - PR #116
+
+### Changed
+
+- Refactored; remove `position(V1)` interaction from SDK
+- Throw error in `removeLiquidity` function if position doesn't have any liquidity
+
+### Fixed
+
+- Removed unused rpc call in `swap`
+
+### Added
+
+- Function `getPosition` to retrieve a single position data
+
+## @meteora-ag/dlmm [1.3.5] - PR #136
+
+### Fixed
+
+- Fixed the `getBins` method to handle the corner case when no bin arrays created for the requested bin ids.
+
+## @meteora-ag/dlmm [1.3.4] - PR #127
+
+### Changed
+
+- Use estimated compute unit instead of 1.4m compute unit for instructions.
+
+## @meteora-ag/dlmm [1.3.3] - PR #133
+
+### Changed
+
+- Update parameters for `ts-client` function `seedLiquiditySingleBin`
+
+## @meteora-ag/dlmm [1.3.2] - PR #134
+
+### Changed
+
+- Close wrap SOL ATA when SOL is swap in direction.
+
 ## lb_clmm [0.8.2] - PR #115
 
 ### Added
@@ -73,6 +220,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 
 - Remove `update_whitelisted_wallet`
+
+## @meteora-ag/dlmm [1.2.4] - PR #119
+
+### Fixed
+
+- Refactor `getBins` to work with any bin ranges
 
 ## @meteora-ag/dlmm [1.2.3] - PR #112
 

@@ -1097,7 +1097,7 @@ checksum = "702fc72eb24e5a1e48ce58027a675bc24edd52096d5397d4aea7c6dd9eca0bd1"
 
 [[package]]
 name = "cli"
-version = "0.4.0"
+version = "0.4.2"
 dependencies = [
  "anchor-client",
  "anchor-lang",
@@ -2277,7 +2277,9 @@ dependencies = [
  "anchor-spl",
  "assert_matches",
  "async-trait",
+ "bincode",
  "bytemuck",
+ "commons",
  "mpl-token-metadata",
  "num-integer",
  "num-traits",
@@ -2288,6 +2290,7 @@ dependencies = [
  "solana-program",
  "solana-program-test",
  "solana-sdk",
+ "spl-associated-token-account",
  "uint",
 ]
 
