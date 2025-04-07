@@ -1,5 +1,5 @@
 use anchor_client::solana_sdk::pubkey::Pubkey;
-use anyhow::{ensure, Context, Result};
+use anyhow::{anyhow, ensure, Context, Result};
 use lb_clmm::{
     pair_action_access::ActivationType,
     state::{
@@ -157,7 +157,11 @@ pub fn quote_exact_in(
     let mut total_amount_out: u64 = 0;
     let mut total_fee: u64 = 0;
 
+    let mut while_count = 0;
     while amount_in > 0 {
+        if while_count > 50 {
+            return Err(anyhow!("endless while loop"))
+        }
         let active_bin_array_pubkey = get_bin_array_pubkeys_for_swap(
             lb_pair_pubkey,
             &lb_pair,
@@ -209,6 +213,7 @@ pub fn quote_exact_in(
                 lb_pair.advance_active_bin(swap_for_y)?;
             }
         }
+        while_count += 1;
     }
 
     Ok(SwapExactInQuote {
