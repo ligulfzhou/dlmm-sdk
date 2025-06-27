@@ -23,9 +23,14 @@ bytemuck = { workspace = true }
 async-trait = { workspace = true }
 spl-transfer-hook-interface = { workspace = true }
 
-[dev-dependencies]
-spl-associated-token-account = { workspace = true }
-solana-program-test = "1.17.0"
-assert_matches = "1.5.0"
-solana-program = "1.17.0"
-spl-memo = { workspace = true, features = ["no-entrypoint"] }
+[patch.crates-io]
+ahash = { version = "0.7.6", default-features = false }
+
+
+
+#[dev-dependencies]
+#spl-associated-token-account = { workspace = true }
+#solana-program-test = "1.17.0"
+#assert_matches = "1.5.0"
+#solana-program = "1.17.0"
+#spl-memo = { workspace = true, features = ["no-entrypoint"] }

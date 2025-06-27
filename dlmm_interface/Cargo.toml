@@ -24,7 +24,10 @@ optional = true
 version = "^1.0"
 
 [dependencies.solana-program]
-version = "^1.16"
+version = "=2.1.0"
 
 [dependencies.thiserror]
 version = "^1.0"
+
+#[patch.crates-io]
+#ahash = { version = "0.7.6", default-features = false }
